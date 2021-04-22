@@ -13,41 +13,54 @@ from sklearn.svm import SVC
 stop = stopwords.words('english')
 tokenizer = RegexpTokenizer(r'\w+')
 
+
 def n_grams(data):
 
     # tokenize request text of incoming dataset and save into column
     def tokenize(data):
         # remove punctuation
-        data['tokenized_request_text'] = data['request_text'].apply(lambda row: ' '.join(tokenizer.tokenize(row)))
+        data['tokenized_request_text'] = data['request_text'].apply(
+            lambda row: ' '.join(tokenizer.tokenize(row)))
 
         # remove stopwords & lowercase
-        tokens = data['tokenized_request_text'].apply(lambda row: ' '.join([word for word in row.lower().split() if word not in stop])).tolist()
+        tokens = data['tokenized_request_text'].apply(lambda row: ' '.join(
+            [word for word in row.lower().split() if word not in stop])).tolist()
         return tokens
-    
-    # find unigrams and bigrams
-    def find_ngrams(tokens):        
-        unigrams = sum(list(map(lambda t: list(ngrams(t.split(), 1)), tokens)), [])
-        bigrams = sum(list(map(lambda t: list(ngrams(t.split(), 2)), tokens)), [])
 
-        # find most freq
+    # find top 500 unigrams and top 500 bigrams
+    def find_top_500_ngrams(tokens):
+        unigrams = sum(
+            list(map(lambda t: list(ngrams(t.split(), 1)), tokens)), [])
+        bigrams = sum(
+            list(map(lambda t: list(ngrams(t.split(), 2)), tokens)), [])
+
+        # find 500 most freq
         unigrams = FreqDist(unigrams).most_common(500)
         bigrams = FreqDist(bigrams).most_common(500)
 
-        # word_vectorizer = CountVectorizer(ngram_range=(1,2), analyzer='word')
-        # top_500_unigrams = word_vectorizer.fit_transform(unigrams)
-        # top_500_bigrams = word_vectorizer.fit_transform(bigrams)
+        # map into list
+        def get_ngrams(ngram_freq): return ngram_freq[0][0]
+        list_unigrams = list(
+            map(lambda ngram_freq: ngram_freq[0][0], list(unigrams)))
+        list_bigrams = list(
+            map(lambda ngram_freq: ngram_freq[0], list(bigrams)))
 
-        # print("💗", top_500_unigrams)
+        # return ngrams
+        return list_unigrams, list_bigrams
 
-        # return FreqDist(unigrams).most_common(500), FreqDist(bigrams).most_common(500)
-        
-        # word_vectorizer = CountVectorizer(ngram_range=(1,2), analyzer='word')
-        # sparse_matrix = word_vectorizer.fit_transform(data['tokenized_request_text'])
-        # frequencies = sum(sparse_matrix).toarray()[0]
-        # ngrams = pd.DataFrame(frequencies, index=word_vectorizer.get_feature_names(), columns=['freq'])
-        # ngrams.sort_values(by=['freq'])
-        # print(ngrams.head(30))
-    
+    def calc_features(unigrams, bigrams, tokens):
+        unigram_feature_vectors = []
+
+        for token_set in tokens:
+            feature_vector = []
+            for u in unigrams:
+                res = 1 if u in token_set else 0
+                feature_vector.append(res)
+            
+            unigram_feature_vectors.append(feature_vector)
+
+        return unigram_feature_vectors
+
     def model(data, ngrams):
         train, test = train_test_split(data, test_size=0.1)
         svmc = SVC(kernel='linear')
@@ -55,14 +68,13 @@ def n_grams(data):
         svmc.fit()
 
     tokens = tokenize(data)
-    grams = find_ngrams(tokens)
-
-
+    unigrams, bigrams = find_top_500_ngrams(tokens)
+    unigram_feature, bigram_feature = calc_features(unigrams, bigrams, tokens)
 
 
 def activity_reputation():
     pass
 
+
 def narratives():
     pass
-
