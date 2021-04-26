@@ -6,7 +6,7 @@ from sklearn.metrics import make_scorer
 specificity = make_scorer(recall_score, pos_label=0)
 
 
-def classifier(classifier, X_train, X_test, y_train, y_true):
+def run_classifier(classifier, X_train, X_test, y_train, y_true):
     svc = classifier.fit(X_train, y_train)
 
     scoring = {'accuracy': 'accuracy', 'balanced_accuracy': 'balanced_accuracy', 'precision': 'precision',

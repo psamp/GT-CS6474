@@ -1,7 +1,7 @@
 import numpy as np
 from nltk import FreqDist
 from sklearn.linear_model import SGDClassifier
-from classifier import classifier
+from classifier import run_classifier
 
 flair_encoding = {
     "none": [0, 0, 0],
