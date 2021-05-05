@@ -1,0 +1,15 @@
+student
+college
+final
+pizza
+loan
+summer
+university
+money
+class
+meal
+year
+semester
+story
+kid
+school

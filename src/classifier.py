@@ -1,4 +1,4 @@
-from sklearn.model_selection import cross_validate
+from sklearn.model_selection import cross_validate, cross_val_score
 from metrics import model_metrics
 from sklearn.metrics import recall_score
 from sklearn.metrics import make_scorer
@@ -22,5 +22,7 @@ def run_classifier(classifier, X_train, X_test, y_train, y_true):
 
     y_scores = svc.decision_function(X_test)
     y_pred = svc.predict(X_test)
+
+    print(y_pred)
 
     model_metrics(y_true, y_pred, y_scores)

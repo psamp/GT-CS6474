@@ -1,0 +1,15 @@
+job
+month
+rent
+year
+interview
+bill
+luck
+school
+pizza
+paycheck
+unemployment
+money
+ramen
+end
+check

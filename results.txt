@@ -1,0 +1,65 @@
+MODEL 1 - N-GRAMS
+0.706 test_accuracy with a standard deviation of 0.031
+0.553 test_balanced_accuracy with a standard deviation of 0.062
+0.302 test_precision with a standard deviation of 0.101
+0.287 test_f1 with a standard deviation of 0.111
+0.572 test_roc_auc with a standard deviation of 0.062
+0.280 test_recall with a standard deviation of 0.129
+0.826 test_specificity with a standard deviation of 0.028
+ACCURACY 💖 0.6778169014084507
+BALANCED ACCURACY 👀 0.5034492099322799
+SPECIFICITY (TNR) 💀 0.8148984198645598
+RECALL (TPR) 👁 0.192
+PREC 📍 0.659252757827698
+F1 💧 0.2077922077922078
+AUC 💙 0.5000632054176072
+
+
+MODEL 2 - ACTIVITY & REPUTATION
+0.572 test_accuracy with a standard deviation of 0.173
+0.465 test_balanced_accuracy with a standard deviation of 0.033
+0.105 test_precision with a standard deviation of 0.089
+0.147 test_f1 with a standard deviation of 0.131
+0.417 test_roc_auc with a standard deviation of 0.092
+0.272 test_recall with a standard deviation of 0.293
+0.657 test_specificity with a standard deviation of 0.302
+ACCURACY 💖 0.6742957746478874
+BALANCED ACCURACY 👀 0.5442618510158014
+SPECIFICITY (TNR) 💀 0.7765237020316027
+RECALL (TPR) 👁 0.312
+PREC 📍 0.6861374770361299
+F1 💧 0.2965779467680608
+AUC 💙 0.500352144469526
+
+
+MODEL 3 - NARRATIVES
+0.780 test_accuracy with a standard deviation of 0.001
+0.500 test_balanced_accuracy with a standard deviation of 0.000
+0.000 test_precision with a standard deviation of 0.000
+0.000 test_f1 with a standard deviation of 0.000
+0.552 test_roc_auc with a standard deviation of 0.074
+0.000 test_recall with a standard deviation of 0.000
+1.000 test_specificity with a standard deviation of 0.000
+ACCURACY 💖 0.7799295774647887
+BALANCED ACCURACY 👀 0.5
+SPECIFICITY (TNR) 💀 1.0
+RECALL (TPR) 👁 0.0
+PREC 📍 0.608290145804404
+F1 💧 0.0
+AUC 💙 0.5084424379232506
+
+MODEL 4 - MORAL FOUNDATIONS
+0.780 test_accuracy with a standard deviation of 0.001
+0.500 test_balanced_accuracy with a standard deviation of 0.000
+0.000 test_precision with a standard deviation of 0.000
+0.000 test_f1 with a standard deviation of 0.000
+0.494 test_roc_auc with a standard deviation of 0.038
+0.000 test_recall with a standard deviation of 0.000
+1.000 test_specificity with a standard deviation of 0.000
+ACCURACY 💖 0.7799295774647887
+BALANCED ACCURACY 👀 0.5
+SPECIFICITY (TNR) 💀 1.0
+RECALL (TPR) 👁 0.0
+PREC 📍 0.608290145804404
+F1 💧 0.0
+AUC 💙 0.5206410835214447
