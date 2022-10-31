@@ -1,2 +1,4 @@
 .vscode/
 .icloud
+__pycache__/
+*.pyc
