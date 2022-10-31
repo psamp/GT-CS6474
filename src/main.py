@@ -5,7 +5,6 @@ from model1 import n_grams
 from model2 import activity_reputation
 from model3 import narratives
 from model4 import moral_foundations
-from bonus_model import contextual_narratives
 
 # read in and split dataset into test/train
 data = pd.read_json('./data/pizza_request_dataset.json')
@@ -23,5 +22,3 @@ print("MODEL 3 - NARRATIVES")
 narratives(X_train, X_test, y_train, y_true)
 print("MODEL 4 - MORAL FOUNDATIONS")
 moral_foundations(X_train, X_test, y_train, y_true)
-# print("BONUS MODEL - CONTEXUAL NARRATIVES")
-# contextual_narratives(X_train, X_test, y_train, y_true)

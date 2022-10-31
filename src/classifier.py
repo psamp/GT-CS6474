@@ -23,6 +23,4 @@ def run_classifier(classifier, X_train, X_test, y_train, y_true):
     y_scores = svc.decision_function(X_test)
     y_pred = svc.predict(X_test)
 
-    print(y_pred)
-
     model_metrics(y_true, y_pred, y_scores)

@@ -1,4 +1,5 @@
 import numpy as np
+import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from nltk.util import ngrams
@@ -6,7 +7,7 @@ from nltk import FreqDist
 from sklearn.svm import SVC
 from classifier import run_classifier
 
-# nltk.download('stopwords')
+nltk.download('stopwords')
 stop = stopwords.words('english')
 tokenizer = RegexpTokenizer(r'\w+')
 
